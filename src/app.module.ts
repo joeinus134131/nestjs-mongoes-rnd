@@ -1,10 +1,13 @@
 import { Module } from '@nestjs/common';
+import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { ProductsModule } from './products/products.module';
 
 @Module({
-  imports: [],
+  imports: [ProductsModule, 
+    MongooseModule.forRoot('mongodb+srv://user_workflow:infomediatestingPoint@bpmplatform.hkm2gp9.mongodb.net/?retryWrites=true&w=majority&appName=bpmplatform')],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService]
 })
 export class AppModule {}
